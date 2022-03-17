@@ -6,5 +6,4 @@ $config = @{
     webAppNames    = @('traviswat45745', 'traviswat68586')
 }
 
-# New-AzResourceGroupDeployment -ResourceGroupName "Test" -TemplateFile ".\main.bicep" -TemplateParameterFile ".\params\dev.parameters.json" @config
-New-AzResourceGroupDeployment -ResourceGroupName "Test" -TemplateFile ".\main.bicep" @config
+New-AzResourceGroupDeployment -ResourceGroupName "Test" -TemplateFile ".\main.bicep" -TemplateParameterFile ".\params\dev.parameters.json" @config
