@@ -23,37 +23,37 @@ resource appServicePlan 'Microsoft.Web/serverFarms@2020-06-01' = {
   }
 }
 
-resource appServiceApp 'Microsoft.Web/sites@2020-06-01' = {
-  name: appName
-  location: location
-  properties: {
-    serverFarmId: appServicePlan.id
-    httpsOnly: true
-    siteConfig: {
-      metadata: [
-        {
-          name: 'CURRENT_STACK'
-          value: 'dotnet'
-        }
-      ]
-      netFrameworkVersion: '4.0'
-      // appSettings: [
-      //   {
-      //     'name': 'APPINSIGHTS_INSTRUMENTATIONKEY'
-      //     'value': appInsightPlan.properties.InstrumentationKey
-      //   }
-      //   {
-      //     'name': 'ApplicationInsightsAgent_EXTENSION_VERSION'
-      //     'value': '~2'
-      //   }
-      //   {
-      //     'name': 'XDT_MicrosoftApplicationInsights_Mode'
-      //     'value': 'recommended'
-      //   }
-      // ]
-    }
-  }
-}
+// resource appServiceApp 'Microsoft.Web/sites@2020-06-01' = {
+//   name: appName
+//   location: location
+//   properties: {
+//     serverFarmId: appServicePlan.id
+//     httpsOnly: true
+//     siteConfig: {
+//       metadata: [
+//         {
+//           name: 'CURRENT_STACK'
+//           value: 'dotnet'
+//         }
+//       ]
+//       netFrameworkVersion: '4.0'
+//       // appSettings: [
+//       //   {
+//       //     'name': 'APPINSIGHTS_INSTRUMENTATIONKEY'
+//       //     'value': appInsightPlan.properties.InstrumentationKey
+//       //   }
+//       //   {
+//       //     'name': 'ApplicationInsightsAgent_EXTENSION_VERSION'
+//       //     'value': '~2'
+//       //   }
+//       //   {
+//       //     'name': 'XDT_MicrosoftApplicationInsights_Mode'
+//       //     'value': 'recommended'
+//       //   }
+//       // ]
+//     }
+//   }
+// }
 
 // resource webAppConfig 'Microsoft.Web/sites/config@2021-03-01' = {
 //   name: 'appsettings'
