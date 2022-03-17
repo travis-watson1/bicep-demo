@@ -6,7 +6,7 @@ param appSku string
 param webAppNames array
 
 module appService 'modules/appService.bicep' = [for (name, i) in webAppNames: {
-  name: appServiceName
+  name: '${appServiceName}${i}'
   params: {
     location: location
     appSku: appSku
