@@ -2,16 +2,16 @@
 @description('Username for the virtual machine.')
 param location string
 param appSku string
-// param webAppNames array
+param webAppNames array
 
-module appService 'modules/appService.bicep' = {
-  name: 'test'
+module appService 'modules/appService.bicep' = [for (name, i) in webAppNames: {
+  name: name
   params: {
     location: location
     appSku: appSku
-    appName: 'test'
+    appName: name
   }
-}
+}]
 
 // module virtualMachine 'modules/vm.bicep' = {
 //   name: 'virtual-machine'
