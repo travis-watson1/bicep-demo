@@ -1,6 +1,5 @@
 //Example of using output in modules:
 @description('Username for the virtual machine.')
-param appServiceName string
 param location string
 param appSku string
 param webAppNames array
@@ -10,7 +9,7 @@ module appService 'modules/appService.bicep' = {
   params: {
     location: location
     appSku: appSku
-    appName: name
+    appName: 'test'
   }
 }
 
