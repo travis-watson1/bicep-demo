@@ -1,15 +1,10 @@
 param appServiceName string
 param location string
 param appSku string
-//param webAppNames array
+param appName string
 
-var webAppNames = [
-  'app1'
-  'app2'
-]
-
-resource appInsightPlan 'Microsoft.Insights/components@2020-02-02' = [for name in webAppNames: {
-  name: 'test-${name}'
+resource appInsightPlan 'Microsoft.Insights/components@2020-02-02' = {
+  name: appName
   location: location
   kind: 'web'
   properties: {
@@ -19,7 +14,7 @@ resource appInsightPlan 'Microsoft.Insights/components@2020-02-02' = [for name i
     publicNetworkAccessForQuery: 'Enabled'
     RetentionInDays: 270
   }
-}]
+}
 
 resource appServicePlan 'Microsoft.Web/serverFarms@2020-06-01' = {
   name: 'test'
