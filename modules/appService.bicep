@@ -22,7 +22,7 @@ resource appServicePlan 'Microsoft.Web/serverFarms@2020-06-01' = [for i in range
   sku: {
     name: appSku
   }
-}
+}]
 
 resource appServiceApp 'Microsoft.Web/sites@2020-06-01' = {
   name: appServiceName
