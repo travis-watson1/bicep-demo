@@ -1,7 +1,12 @@
 param appServiceName string
 param location string
 param appSku string
-param webAppNames array
+//param webAppNames array
+
+var webAppNames = [
+  'app1'
+  'app2'
+]
 
 resource appInsightPlan 'Microsoft.Insights/components@2020-02-02' = [for name in webAppNames: {
   name: 'test-${name}'
@@ -16,13 +21,13 @@ resource appInsightPlan 'Microsoft.Insights/components@2020-02-02' = [for name i
   }
 }]
 
-resource appServicePlan 'Microsoft.Web/serverFarms@2020-06-01' = [for i in range(1, 2): {
-  name: 'test-${i}'
+resource appServicePlan 'Microsoft.Web/serverFarms@2020-06-01' = {
+  name: 'test'
   location: location
   sku: {
     name: appSku
   }
-}]
+}
 
 resource appServiceApp 'Microsoft.Web/sites@2020-06-01' = {
   name: appServiceName

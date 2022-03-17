@@ -11,7 +11,6 @@ module appService 'modules/appService.bicep' = {
     appServiceName: appServiceName
     location: location
     appSku: appSku
-    webAppNames: webAppNames
   }
 }
 
