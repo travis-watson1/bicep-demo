@@ -7,4 +7,4 @@ $config = @{
     location       = 'West US'
 }
 
-New-AzResourceGroupDeployment -ResourceGroupName "Test" -TemplateFile ".\main.bicep" -TemplateParameterFile ".\params\dev.parameters.json" @config
+New-AzResourceGroupDeployment -ResourceGroupName "Test" -TemplateFile "main.bicep" -TemplateParameterFile ".\params\dev.parameters.json" @config
