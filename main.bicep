@@ -2,7 +2,7 @@
 @description('Username for the virtual machine.')
 param location string
 param appSku string
-param webAppNames array
+// param webAppNames array
 
 module appService 'modules/appService.bicep' = {
   name: 'test'

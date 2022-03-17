@@ -16,7 +16,7 @@ param appName string
 // }
 
 resource appServicePlan 'Microsoft.Web/serverFarms@2020-06-01' = {
-  name: '${appName}1'
+  name: appName
   location: location
   sku: {
     name: appSku
