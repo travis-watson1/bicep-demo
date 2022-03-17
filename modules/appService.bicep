@@ -17,7 +17,7 @@ resource appInsightPlan 'Microsoft.Insights/components@2020-02-02' = {
 }
 
 resource appServicePlan 'Microsoft.Web/serverFarms@2020-06-01' = {
-  name: 'test'
+  name: appName
   location: location
   sku: {
     name: appSku
@@ -25,7 +25,7 @@ resource appServicePlan 'Microsoft.Web/serverFarms@2020-06-01' = {
 }
 
 resource appServiceApp 'Microsoft.Web/sites@2020-06-01' = {
-  name: appServiceName
+  name: appName
   location: location
   properties: {
     serverFarmId: appServicePlan.id
