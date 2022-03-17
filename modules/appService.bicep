@@ -1,8 +1,9 @@
 param appServiceName string
 param location string
+param appSku string
 
-resource appInsightPlan 'Microsoft.Insights/components@2020-02-02' = {
-  name: 'test'
+resource appInsightPlan 'Microsoft.Insights/components@2020-02-02' = [for i in range(1, 2): {
+  name: 'test-${i}'
   location: location
   kind: 'web'
   properties: {
@@ -14,11 +15,11 @@ resource appInsightPlan 'Microsoft.Insights/components@2020-02-02' = {
   }
 }
 
-resource appServicePlan 'Microsoft.Web/serverFarms@2020-06-01' = {
-  name: 'test'
+resource appServicePlan 'Microsoft.Web/serverFarms@2020-06-01' = [for i in range(1, 2): {
+  name: 'test-${i}'
   location: location
   sku: {
-    name: 'F1'
+    name: appSku
   }
 }
 
