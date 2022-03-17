@@ -1,4 +1,3 @@
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 New-AzResourceGroup -Name "Test" -Location "West US" -Force
 
 
