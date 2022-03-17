@@ -1,4 +1,3 @@
-param appServiceName string
 param location string
 param appSku string
 param appName string

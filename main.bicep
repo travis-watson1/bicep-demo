@@ -8,7 +8,6 @@ param webAppNames array
 module appService 'modules/appService.bicep' = [for (name, i) in webAppNames: {
   name: appServiceName
   params: {
-    appServiceName: appServiceName
     location: location
     appSku: appSku
     appName: name
