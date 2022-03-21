@@ -6,6 +6,15 @@ param webAppNames array
 param stgAcctName string
 param vnetName string
 param subnetName string
+param kvtName string
+
+module kvt 'modules/keyVault.bicep' = {
+  name: 'kvtDeployment'
+  params: {
+    location: location
+    kvtName: kvtName
+  }
+}
 
 module appService 'modules/appService.bicep' = [for (name, i) in webAppNames: {
   name: name
@@ -25,12 +34,3 @@ module stgAccount 'modules/storageAccount.bicep' = {
     subnetName: subnetName
   }
 }
-
-// module virtualMachine 'modules/vm.bicep' = {
-//   name: 'virtual-machine'
-//   params: {
-//     adminUsername: adminUsername
-//     adminPassword: adminPassword
-//     subnetResourceId: virtualNetwork.outputs.subnetResourceId
-//   }
-// }

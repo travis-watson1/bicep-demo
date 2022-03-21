@@ -7,6 +7,7 @@ $config = @{
     stgAcctName = 'stgtravis11383'
     vnetName    = 'vnet-test'
     subnetName  = 'SubnetTest'
+    kvtName     = 'traviskvttest'
 }
 
 New-AzResourceGroupDeployment -ResourceGroupName "Test" -TemplateFile ".\main.bicep" -TemplateParameterFile ".\params\dev.parameters.json" @config
