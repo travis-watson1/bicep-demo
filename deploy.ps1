@@ -9,6 +9,7 @@ $config = @{
     subnetName  = 'SubnetTest'
     subnetName2 = 'SubnetTest2'
     kvtName     = 'traviskvttest'
+    sqlPassword = 'test1234'
 }
 
 New-AzResourceGroupDeployment -ResourceGroupName "Test" -TemplateFile ".\main.bicep" -TemplateParameterFile ".\params\dev.parameters.json" @config

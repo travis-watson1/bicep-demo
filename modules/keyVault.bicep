@@ -1,7 +1,8 @@
 param location string
 param kvtName string
+param sqlPassword string
 
-resource symbolicname 'Microsoft.KeyVault/vaults@2021-11-01-preview' = {
+resource keyVault 'Microsoft.KeyVault/vaults@2021-11-01-preview' = {
   name: kvtName
   location: location
   properties: {
@@ -42,5 +43,13 @@ resource symbolicname 'Microsoft.KeyVault/vaults@2021-11-01-preview' = {
       family: 'A'
       name: 'standard'
     }
+  }
+}
+
+resource secret 'Microsoft.KeyVault/vaults/secrets@2021-04-01-preview' = {
+  parent: keyVault
+  name: 'AWACSSqlAdminPassword'
+  properties: {
+    value: sqlPassword
   }
 }

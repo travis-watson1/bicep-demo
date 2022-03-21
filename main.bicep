@@ -8,12 +8,14 @@ param vnetName string
 param subnetName string
 param subnetName2 string
 param kvtName string
+param sqlPassword string
 
 module kvt 'modules/keyVault.bicep' = {
   name: 'kvtDeployment'
   params: {
     location: location
     kvtName: kvtName
+    sqlPassword: sqlPassword
   }
 }
 
