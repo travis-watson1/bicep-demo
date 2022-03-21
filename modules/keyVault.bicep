@@ -11,19 +11,27 @@ resource symbolicname 'Microsoft.KeyVault/vaults@2021-11-01-preview' = {
         objectId: '8a3a5a6d-d917-4b9c-83fd-333a5a94184b'
         permissions: {
           certificates: [
-            'get, list, set'
+            'get'
+            'list'
+            'set'
           ]
           keys: [
-            'get, list, set'
+            'get'
+            'list'
+            'set'
           ]
           secrets: [
-            'get, list, set'
+            'get'
+            'list'
+            'set'
           ]
           storage: [
-            'get, list, set'
+            'get'
+            'list'
+            'set'
           ]
         }
-        tenantId: 'string'
+        tenantId: subscription().tenantId
       }
     ]
     enabledForDeployment: true
