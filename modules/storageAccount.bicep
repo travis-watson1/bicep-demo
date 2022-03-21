@@ -12,7 +12,7 @@ resource vnetTest 'Microsoft.Network/virtualNetworks@2020-11-01' existing = {
   }
 
   resource manageSubnet 'subnets' existing = {
-    name: subnetName
+    name: subnetName2
   }
 }
 
