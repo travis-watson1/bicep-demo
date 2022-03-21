@@ -23,6 +23,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2021-08-01' = {
     accessTier: 'Hot'
     allowBlobPublicAccess: false
     encryption: {
+      keySource: 'Microsoft.Storage'
       services: {
         file: {
           enabled: true
@@ -32,7 +33,6 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2021-08-01' = {
         }
       }
     }
-    keySource: 'Microsoft.Storage'
     minimumTlsVersion: 'TLS1_2'
     networkAcls: {
       bypass: 'AzureServices'
