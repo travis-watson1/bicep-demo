@@ -13,12 +13,10 @@ resource symbolicname 'Microsoft.KeyVault/vaults@2021-11-01-preview' = {
           certificates: [
             'get'
             'list'
-            'set'
           ]
           keys: [
             'get'
             'list'
-            'set'
           ]
           secrets: [
             'get'
