@@ -25,11 +25,9 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2021-08-01' = {
     encryption: {
       services: {
         file: {
-          keyType: 'Account'
           enabled: true
         }
         blob: {
-          keyType: 'Account'
           enabled: true
         }
       }
