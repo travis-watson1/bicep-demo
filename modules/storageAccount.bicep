@@ -11,7 +11,9 @@ resource vnetTest 'Microsoft.Network/virtualNetworks@2020-11-01' existing = {
   }
 }
 
-output managementSubnetResourceId string = vnetTest::managementSubnet.id
+output managementSubnetResourceId string = vnetTest.id
+
+///subscriptions/4b85f0b0-9934-4f07-879d-c7c41d4bb501/resourceGroups/Test/providers/Microsoft.Network/virtualNetworks/vnet-test/subnets/SubnetTest
 
 resource storageAccount 'Microsoft.Storage/storageAccounts@2021-08-01' = {
   name: stgAcctName
