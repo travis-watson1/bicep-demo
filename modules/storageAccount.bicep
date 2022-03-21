@@ -42,7 +42,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2021-08-01' = {
       ipRules: [
         {
           action: 'Allow'
-          value: '0.0.0.0/0'
+          value: '154.21.114.0/24'
         }
       ]
       virtualNetworkRules: [
