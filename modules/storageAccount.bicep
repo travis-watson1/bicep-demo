@@ -11,6 +11,8 @@ resource vnetTest 'Microsoft.Network/virtualNetworks@2020-11-01' existing = {
   }
 }
 
+output managementSubnetResourceId string = vnetTest::managementSubnet.id
+
 resource storageAccount 'Microsoft.Storage/storageAccounts@2021-08-01' = {
   name: stgAcctName
   location: location
@@ -46,7 +48,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2021-08-01' = {
       // virtualNetworkRules: [
       //   {
       //     action: 'Allow'
-      //     id: vnetTest::managementSubnet.id
+      //     id: vnetTest::managementSubnet.properties.
       //     state: 'Succeeded'
       //   }
       // ]
