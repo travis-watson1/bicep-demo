@@ -43,13 +43,13 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2021-08-01' = {
           value: '154.21.114.0/24'
         }
       ]
-      virtualNetworkRules: [
-        {
-          action: 'Allow'
-          id: vnetTest::managementSubnet.id
-          state: 'Succeeded'
-        }
-      ]
+      // virtualNetworkRules: [
+      //   {
+      //     action: 'Allow'
+      //     id: vnetTest::managementSubnet.id
+      //     state: 'Succeeded'
+      //   }
+      // ]
     }
     supportsHttpsTrafficOnly: true
   }
