@@ -6,6 +6,7 @@ param webAppNames array
 param stgAcctName string
 param vnetName string
 param subnetName string
+param subnetName2 string
 param kvtName string
 
 module kvt 'modules/keyVault.bicep' = {
@@ -32,5 +33,6 @@ module stgAccount 'modules/storageAccount.bicep' = {
     stgAcctName: stgAcctName
     vnetName: vnetName
     subnetName: subnetName
+    subnetName2: subnetName2
   }
 }

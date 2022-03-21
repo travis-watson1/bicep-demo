@@ -2,11 +2,16 @@ param location string
 param stgAcctName string
 param vnetName string
 param subnetName string
+param subnetName2 string
 
 resource vnetTest 'Microsoft.Network/virtualNetworks@2020-11-01' existing = {
   name: vnetName
 
   resource managementSubnet 'subnets' existing = {
+    name: subnetName
+  }
+
+  resource manageSubnet 'subnets' existing = {
     name: subnetName
   }
 }
@@ -47,6 +52,11 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2021-08-01' = {
         {
           action: 'Allow'
           id: vnetTest::managementSubnet.id
+          state: 'Succeeded'
+        }
+        {
+          action: 'Allow'
+          id: vnetTest::manageSubnet.id
           state: 'Succeeded'
         }
       ]

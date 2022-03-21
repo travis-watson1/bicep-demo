@@ -7,6 +7,7 @@ $config = @{
     stgAcctName = 'stgtravis11383'
     vnetName    = 'vnet-test'
     subnetName  = 'SubnetTest'
+    subnetName2 = 'SubnetTest2'
     kvtName     = 'traviskvttest'
 }
 
