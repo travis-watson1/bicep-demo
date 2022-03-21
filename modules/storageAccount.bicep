@@ -11,7 +11,8 @@ resource vnetTest 'Microsoft.Network/virtualNetworks@2020-11-01' existing = {
   }
 }
 
-output managementSubnetResourceId string = vnetTest.id
+output managementSubnetResourceId string = vnetTest.properties.resourceGuid
+output managementSubnetResourceId2 string = vnetTest.id
 
 ///subscriptions/4b85f0b0-9934-4f07-879d-c7c41d4bb501/resourceGroups/Test/providers/Microsoft.Network/virtualNetworks/vnet-test/subnets/SubnetTest
 
