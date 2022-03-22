@@ -1,6 +1,7 @@
 param location string
 param kvtName string
 param sqlPassword string
+param secretExists bool
 
 resource keyVault 'Microsoft.KeyVault/vaults@2021-11-01-preview' = {
   name: kvtName
@@ -46,7 +47,7 @@ resource keyVault 'Microsoft.KeyVault/vaults@2021-11-01-preview' = {
   }
 }
 
-resource secret 'Microsoft.KeyVault/vaults/secrets@2021-04-01-preview' = {
+resource secret 'Microsoft.KeyVault/vaults/secrets@2021-04-01-preview' = if (secretExists) {
   parent: keyVault
   name: 'AWACSSqlAdminPassword'
   properties: {

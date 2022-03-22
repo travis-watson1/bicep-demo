@@ -9,14 +9,21 @@ param subnetName string
 param subnetName2 string
 param kvtName string
 param sqlPassword string
+param secretExists bool
 
-module kvt 'modules/keyVault.bicep' = {
-  name: 'kvtDeployment'
-  params: {
-    location: location
-    kvtName: kvtName
-    sqlPassword: sqlPassword
-  }
+// module kvt 'modules/keyVault.bicep' = {
+//   name: 'kvtDeployment'
+//   params: {
+//     location: location
+//     kvtName: kvtName
+//     sqlPassword: sqlPassword
+//     secretExists: secretExists
+//   }
+// }
+
+resource kv 'Microsoft.KeyVault/vaults@2019-09-01' existing = {
+  scope: resourceGroup('Test2')
+  name: kvtName
 }
 
 module appService 'modules/appService.bicep' = [for (name, i) in webAppNames: {
@@ -25,16 +32,17 @@ module appService 'modules/appService.bicep' = [for (name, i) in webAppNames: {
     location: location
     appSku: appSku
     appName: name
+    adminPassword: kv.getSecret('vmAdminPassword')
   }
 }]
 
-module stgAccount 'modules/storageAccount.bicep' = {
-  name: 'stgAcctDeployment'
-  params: {
-    location: location
-    stgAcctName: stgAcctName
-    vnetName: vnetName
-    subnetName: subnetName
-    subnetName2: subnetName2
-  }
-}
+// module stgAccount 'modules/storageAccount.bicep' = {
+//   name: 'stgAcctDeployment'
+//   params: {
+//     location: location
+//     stgAcctName: stgAcctName
+//     vnetName: vnetName
+//     subnetName: subnetName
+//     subnetName2: subnetName2
+//   }
+// }

@@ -1,6 +1,8 @@
 param location string
 param appSku string
 param appName string
+@secure()
+param adminPassword string
 
 resource appInsightPlan 'Microsoft.Insights/components@2020-02-02' = {
   name: appName
